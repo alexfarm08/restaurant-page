@@ -28,18 +28,27 @@ export function home() {
     tableSection.classList.add("tableSection");
     pageContent.appendChild(tableSection);
 
+    const tableTitle = document.createElement("h3");
+    tableTitle.textContent = "Hours Of Operation"
+    tableSection.appendChild(tableTitle);
+
     // METHOD TO CREATE TABLE
     const generateTable = () => {
         const table = document.createElement("table");
         const tbody = document.createElement("tbody");
+        const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const hoursOpen = ["10Am - 10Pm", "10Am - 9Pm", "10Am - 9Pm", "10Am - 9Pm", "10Am - 10Pm", "10Am - 11Pm", "10Am - 11Pm"];
         for (let i = 0; i < 7; i++) {
             const row = document.createElement("tr");
-            for (let j = 0; j < 2; j++) {
-                const cell = document.createElement("td");
-                const cellText = document.createTextNode(`cell in row ${i}, col ${j}`);
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            }
+            
+            const dayCell = document.createElement("td");
+            dayCell.textContent = daysOfTheWeek[i];
+            row.appendChild(dayCell);
+
+            const hoursCell = document.createElement("td");
+            hoursCell.textContent = hoursOpen[i];
+            row.appendChild(hoursCell);
+
             tbody.appendChild(row);
         }
         table.appendChild(tbody);
@@ -50,4 +59,23 @@ export function home() {
     generateTable();
 
     // LOCATIONS
+    const locationSection = document.createElement("section");
+    locationSection.classList.add("locationSection");
+    pageContent.appendChild(locationSection);
+
+    const locationTitle = document.createElement("h3");
+    locationTitle.textContent = "Locations:";
+    locationSection.appendChild(locationTitle);
+
+    const location1 = document.createElement("p");
+    location1.textContent = "Federal Way";
+    locationSection.appendChild(location1);
+
+    const location2 = document.createElement("p");
+    location2.textContent = "Lakewood";
+    locationSection.appendChild(location2);
+
+    const location3 = document.createElement("p");
+    location3.textContent = "University Place";
+    locationSection.appendChild(location3);
 }

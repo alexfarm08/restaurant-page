@@ -1,5 +1,5 @@
+// IMPORTS HOME PAGE
 import { home } from "./home.js";
 
-console.log("hello, world!");
-
+// LOADS HOME PAGE
 home();
